@@ -1,43 +1,37 @@
 <template>
-  <div class="auth-page">
-    <div class="container page">
-      <div class="row">
-        <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign insss</h1>
-          <p class="text-xs-center">
-            <router-link :to="{ name: 'register' }">
-              Need an account?s
-            </router-link>
-          </p>
-          <form >
-            <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                v-model="email"
-                placeholder="Email"
-              />
-            </fieldset>
-            <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg"
-                type="password"
-                v-model="password"
-                placeholder="Password"
-              />
-            </fieldset>
-            <button class="btn btn-lg btn-primary pull-xs-right">
-              Sign in
-            </button>
-          </form>
+    <div class="container">
+        <div id="formContent" class="m-auto">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first m-6">
+                <h4>Welcome</h4>
+            </div>
+
+            <!-- Login Form -->
+            <form>
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+              <p class="text-xs-center">
+                <router-link :to="{ name: 'register' }">
+                  Need an account?
+                </router-link>
+              </p>
+              <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+//import { LOGIN } from "@/store/actions.type";
 
 export default {
   name: "Login",
@@ -57,3 +51,8 @@ export default {
   }
 };
 </script>
+
+<style >
+
+
+</style>

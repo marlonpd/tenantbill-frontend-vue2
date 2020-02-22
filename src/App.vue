@@ -2,6 +2,7 @@
   <div id="app">
     <HeaderSection />
     <router-view></router-view>
+    <FlashMessage ></FlashMessage>
     <FooterSection />
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

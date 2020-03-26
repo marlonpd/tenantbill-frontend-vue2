@@ -2,13 +2,11 @@
     <div class="container">
         <div id="formContent" class="m-auto">
             <!-- Tabs Titles -->
-
             <!-- Icon -->
             <div class="fadeIn first m-6">
                 <h4>Create Account</h4>
                 
             </div>
-
             <!-- Login Form -->
             <form @submit.prevent="onSubmit">
                 <input 
@@ -21,13 +19,22 @@
                 />
                 <input 
                     type="text" 
+                    id="username" 
+                    class="fadeIn second" 
+                    name="username" 
+                    v-model="username"
+                    placeholder="username"
+                />
+                <input 
+                    type="password" 
                     id="password" 
                     class="fadeIn third" 
                     name="password" 
+                    v-model="password"
                     placeholder="password"
                 />
                 <input 
-                    type="text" 
+                    type="password" 
                     id="password1" 
                     class="fadeIn third" 
                     name="password1" 
@@ -56,13 +63,14 @@
 
 <script>
 import { mapState } from "vuex";
-//import { REGISTER } from "@/store/actions.type";
+import { REGISTER } from "@/store/actions.type";
 
 export default {
   name: "Register",
   data() {
     return {
       email: null,
+      username: null,
       password: null,
       password1: null  
     };
@@ -74,19 +82,23 @@ export default {
   },
   methods: {
     onSubmit() {
-        this.flashMessage.show({
-            status: 'error',
-            title: 'Error Message Title',
-            message: 'Oh, you broke my heart! Shame on you!'
-        });
+        if (this.password !== this.password1) {
+            this.flashMessage.show({
+                status: 'error',
+                title: 'Error!',
+                message: 'Password did not match!'
+            });
 
-        /*this.$store
+            return;
+        }
+
+        this.$store
             .dispatch(REGISTER, {
-            email: this.email,
-            password: this.password,
-            username: this.username
+                email: this.email,
+                username: this.username,
+                password: this.password
             })
-            .then(() => this.$router.push({ name: "home" }));*/
+            .then(() => this.$router.push({ name: "login" }));
     }
   }
 };

@@ -1,8 +1,8 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import JwtService from "@/api/jwt";
-import { API_URL } from "@/api/config";
+import JwtService from "@/apis/jwt";
+import { API_URL } from "@/apis/config";
 
 const ApiService = {
   init() {

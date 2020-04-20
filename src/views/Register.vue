@@ -5,7 +5,9 @@
             <!-- Icon -->
             <div class="fadeIn first m-6">
                 <h4>Create Account</h4>
-                
+                <ul v-if="errors" class="error-messages">
+                  <li >{{errors}}</li>
+                </ul>
             </div>
             <!-- Login Form -->
             <form @submit.prevent="onSubmit">
@@ -62,7 +64,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import { REGISTER } from "@/store/actions.type";
 
 export default {
@@ -78,7 +80,26 @@ export default {
   computed: {
     ...mapState({
       errors: state => state.auth.errors
-    })
+    }),
+    ...mapGetters(["isSuccessRegistration"])
+  },
+  watch: {
+    isSuccessRegistration() {
+        const self = this;
+        console.log(' success yehey');
+        if (this.isSuccessRegistration) {
+            this.flashMessage.show({
+                status: 'success',
+                title: 'Success!',
+                message: 'Successfully created an account!'
+            });
+            setTimeout(function(){ 
+                self.$router.push({
+                    name: 'login'
+                });
+            }, 3000);
+        }
+    }
   },
   methods: {
     onSubmit() {
@@ -98,7 +119,13 @@ export default {
                 username: this.username,
                 password: this.password
             })
-            .then(() => this.$router.push({ name: "login" }));
+            .then(({response}) => 
+                this.flashMessage.show({
+                    status: 'success',
+                    title: 'Success!',
+                    message: response.message
+                })
+            );
     }
   }
 };

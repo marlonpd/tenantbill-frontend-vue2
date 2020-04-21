@@ -86,7 +86,6 @@ export default {
   watch: {
     isSuccessRegistration() {
         const self = this;
-        console.log(' success yehey');
         if (this.isSuccessRegistration) {
             this.flashMessage.show({
                 status: 'success',

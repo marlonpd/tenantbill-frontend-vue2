@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div id="row" class="m-auto">
+        <div  class="row m-auto">
             <ul>
                 <li v-for="(tenant, index) in allTenats" :name="tenant" :key="index">
                     {{tenant.name}}
@@ -21,7 +21,7 @@ export default {
     };
   },
   mounted() {
-    this.fetchTenants();
+    //this.fetchTenants();
   },
   methods: {
     fetchTenants() {

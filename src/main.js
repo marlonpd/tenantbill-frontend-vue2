@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import JwtService from "@/apis/jwt";
+//import JwtService from "@/apis/jwt";
 import store from "./store";
 import FlashMessage from '@smartweb/vue-flash-message'
 import ApiService from "@/apis/api";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faUser, faLock, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ErrorFilter from "./common/filter/error";
 import 'bootstrap'
@@ -16,6 +16,7 @@ import './assets/styles/app.css'
 library.add(faUserSecret)
 library.add(faUser)
 library.add(faLock)
+library.add(faSignOutAlt);
 Vue.use(FlashMessage);
 Vue.filter("error", ErrorFilter);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -27,12 +28,8 @@ Vue.config.productionTip = false
 
 // Ensure we checked auth before each page load.
 router.beforeEach((to, from, next) => {
-  console.log( JwtService.getToken() );
 
-  console.log( 'to path=' + to.path );
-  console.log( 'from path=' + from.path );
-
-  if ( (to.path === '/login' || from.path === 'login') && (JwtService.getToken() !== null) ) {
+  /*if ( (to.path === '/login' || from.path === 'login') && (JwtService.getToken() !== null || JwtService.getToken() !== undefined) ) {
     return next({
       path: '/dashboard',
     }); 
@@ -42,7 +39,7 @@ router.beforeEach((to, from, next) => {
     return next({
       path: '/login',
     }); 
-  }
+  }*/
  
   next();
 });

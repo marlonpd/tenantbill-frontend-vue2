@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app ">
+    <div class="container">
     <HeaderSection />
     <router-view></router-view>
     <FlashMessage ></FlashMessage>
     <FooterSection />
+    </div>
   </div>
 </template>
 

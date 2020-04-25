@@ -26,13 +26,41 @@ html {
   
   .navbar {
     height: 60px;
+    padding: .5rem 0rem;
+  }
+
+  .fa-sign-out-alt {
+    font-size: 22px;
   }
 
   .main-header {
     overflow: hidden;
     width: 100%;
   }
+
+  .tenants-table {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  ul.tenants-table li {
+    border-bottom: 2px gray solid;
+  }
   
+  span.tenant-name {
+    font-size: 32px;
+  }
+  
+  .btn-add-new {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+  .btn {
+    border-radius: 0;
+  }
   /* STRUCTURE */
   
   .wrapper {
@@ -292,9 +320,9 @@ html {
     height: 100%;
     position: relative;
     height: auto;
-    left: -22px;
+    left: 0px;
     width: 250px;
-    margin-top: 60px;
+    margin-top: 14px;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     background: #56baed;

@@ -1,8 +1,12 @@
 <template>
-  <nav class="navbar navbar-light">
-    <div class="container">
 
-      <div class="row main-header">
+<nav class="navbar navbar-light">
+
+
+      <div class="main-header">
+
+          <div class="float-left" style="width:60px">
+
         <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
         <label for="openSidebarMenu" class="sidebarIconToggle">
           <div class="spinner diagonal part-1"></div>
@@ -16,13 +20,23 @@
           </ul>
         </div>
 
-        <div class="pull-right">
+
+        </div>
+        <div class="m-auto" style="width: 200px;">
+          <h1>Power Bill </h1>
+        </div>
+
+        <div class="float-right" style="top: -38px;
+                                        width: 20px;
+                                        position: relative;
+                                        right: 11px;">
           <font-awesome-icon :icon="['fa', 'sign-out-alt']" />
         </div>
       </div>
 
-    </div>
+
   </nav>
+
 </template>
 
 <script>

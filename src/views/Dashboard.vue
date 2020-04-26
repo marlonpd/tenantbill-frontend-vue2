@@ -9,7 +9,10 @@
         </div>
         <div class="fixed-bottom w-100" style="width:100%;">
           <div class="container">
-              <button type="button" class="btn btn-primary btn-add-new">Add New</button>
+              <div>
+                <v-create-tenant v-if="isCreateNewTenant"></v-create-tenant>
+              </div>
+              <button v-if="!isCreateNewTenant" type="button" class="btn btn-primary btn-add-new" @click="toggleCreateNewTenant()">Add New</button>
           </div>
         </div>
     </div>
@@ -17,7 +20,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { FETCH_TENANTS } from "@/store/actions.type";
+import { FETCH_TENANTS, CREATE_NEW_TENANT, GET_IS_CREATE_NEW_TENANT } from "@/store/actions.type";
+import VCreateTenant from "../components/tenant/create/create.vue";
 
 export default {
   name: "Dashboard",
@@ -26,15 +30,26 @@ export default {
     };
   },
   mounted() {
+    this.getIsCreateNewTenant();
     this.fetchTenants();
   },
   methods: {
     fetchTenants() {
       this.$store.dispatch(FETCH_TENANTS);
-    }
+      
+    },
+    getIsCreateNewTenant() {
+      this.$store.dispatch(GET_IS_CREATE_NEW_TENANT);
+    },
+    toggleCreateNewTenant() {
+      this.$store.dispatch(CREATE_NEW_TENANT);
+    },
   },
   computed: {
-    ...mapGetters(['allTenats']),
+    ...mapGetters(['allTenats', 'isCreateNewTenant']),
+  },
+  components: { 
+    VCreateTenant
   }
 };
 </script>

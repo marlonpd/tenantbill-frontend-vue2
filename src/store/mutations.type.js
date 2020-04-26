@@ -6,3 +6,4 @@ export const SET_PROFILE = "setProfile";
 export const TAG_REMOVE = "removeTag";
 export const RESET_STATE = "resetModuleState";
 export const SET_TENANTS = "setTenants";
+export const SET_IS_CREATE_NEW_TENANT = "setIsCreateNew";

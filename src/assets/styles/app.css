@@ -58,6 +58,23 @@ html {
     font-weight: bolder;
   }
 
+  .error-messages {
+    -webkit-padding-start: 0;
+    list-style-type: none;
+    color: red;
+  }
+
+  .sign-out-holder {
+    top: -38px;
+    width: 20px;
+    position: relative;
+    right: 11px;
+  }
+
+  .product-title {
+    width: 200px;
+  }
+
   .btn {
     border-radius: 0;
   }

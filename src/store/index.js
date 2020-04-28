@@ -15,5 +15,8 @@ export default new Vuex.Store({
   modules: {
     auth,
     tenants
-  }
+  },
+
+
+  strict: true,
 });

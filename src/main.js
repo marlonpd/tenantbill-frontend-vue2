@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-//import JwtService from "@/apis/jwt";
+import JwtService from "@/apis/jwt";
 import store from "./store";
 import FlashMessage from '@smartweb/vue-flash-message'
 import ApiService from "@/apis/api";
@@ -29,17 +29,30 @@ Vue.config.productionTip = false
 // Ensure we checked auth before each page load.
 router.beforeEach((to, from, next) => {
 
-  /*if ( (to.path === '/login' || from.path === 'login') && (JwtService.getToken() !== null || JwtService.getToken() !== undefined) ) {
+  console.log('token-' +JwtService.getToken() );
+  console.log('to.path-' +to.path );
+  console.log('from.path-' +from.path);
+
+  if ( (to.path === '/login' || from.path === 'login') && (JwtService.getToken() !== null) ) {
+    console.log('hihihi');
     return next({
       path: '/dashboard',
     }); 
   }
 
+  if ( (to.path === '/dashboard' || from.path === 'dashboard') && (JwtService.getToken() === null) ) {
+    console.log('guugugugu');
+    return next({
+      path: '/login',
+    }); 
+  }
+
+
   if (to.path === '/' ) {
     return next({
       path: '/login',
     }); 
-  }*/
+  }
  
   next();
 });

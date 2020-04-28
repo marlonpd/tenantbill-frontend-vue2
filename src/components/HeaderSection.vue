@@ -33,7 +33,7 @@
         <h1>Power Bill </h1>
       </div>
       <div class="float-right sign-out-holder">
-        <font-awesome-icon :icon="['fa', 'sign-out-alt']" />
+        <font-awesome-icon @click="logout()" :icon="['fa', 'sign-out-alt']" />
       </div>
     </div>
   </nav>
@@ -41,7 +41,20 @@
 
 <script>
 
+import { LOGOUT } from "@/store/actions.type";
+
 export default {
-  name: "HeaderSection"
+  name: "HeaderSection",
+
+  methods: {
+    logout() {
+        this.$store.dispatch(LOGOUT);
+        setTimeout(function(){ 
+            self.$router.push({
+                name: 'login'
+            });
+        }, 3000);
+    },
+  }
 };
 </script>

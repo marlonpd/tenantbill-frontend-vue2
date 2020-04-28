@@ -1,11 +1,13 @@
 <template>
     <div class="container">
         <div  class="row m-auto">
-            <ul class="tenants-table">
-                <li v-for="(tenant, index) in allTenats" :name="tenant" :key="index">
-                    {{tenant.name}}
-                </li>
-            </ul>    
+          <div class="tenants-container">
+              <ul class="tenants-table">
+                  <li v-for="(tenant, index) in allTenats" :name="tenant" :key="index">
+                      {{tenant.name}}
+                  </li>
+              </ul>    
+          </div>
         </div>
         <div class="fixed-bottom w-100" style="width:100%;">
           <div class="container">
@@ -36,7 +38,6 @@ export default {
   methods: {
     fetchTenants() {
       this.$store.dispatch(FETCH_TENANTS);
-      
     },
     getIsCreateNewTenant() {
       this.$store.dispatch(GET_IS_CREATE_NEW_TENANT);

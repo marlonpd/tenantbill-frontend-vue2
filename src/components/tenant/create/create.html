@@ -1,0 +1,13 @@
+<div class="create-tenant-pnl">
+    <h3>Create New Tenant</h3>
+    <form @submit.prevent="onSubmit">
+        <div>
+            <input type="text" id="name" class="w-100" name="name" v-model="name" placeholder="Tenant name">
+        </div>
+        <div class="float-right">
+            <button type="submit" class="btn btn-primary mr-2">submit</button>
+            <button type="button" class="btn btn-secondary" @click="toggleCreateNewTenant()">cancel</button>
+        </div>
+
+    </form>
+</div>

@@ -9,8 +9,8 @@ export const TenantsService = {
     getAll() {
         return ApiService.getAll("/api/tenants");
     },
-    get(slug) {
-        return ApiService.get("/api/tenant", slug);
+    get(tenantId) {
+        return ApiService.get(`/api/tenant/${tenantId}/get`);
     },
     create(params) {
         return ApiService.post("/api/tenant/create",  params );

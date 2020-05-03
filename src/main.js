@@ -2,6 +2,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import JwtService from "@/apis/jwt";
+import Datepicker from 'vuejs-datepicker';
+import moment from 'moment';
 import store from "./store";
 import FlashMessage from '@smartweb/vue-flash-message'
 import ApiService from "@/apis/api";
@@ -18,6 +20,8 @@ library.add(faUser)
 library.add(faLock)
 library.add(faSignOutAlt);
 Vue.use(FlashMessage);
+Vue.use(Datepicker);
+Vue.use(moment);
 Vue.filter("error", ErrorFilter);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

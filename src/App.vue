@@ -1,9 +1,9 @@
 <template>
   <div id="app ">
     <div class="container">
-    <HeaderSection />
-    <router-view></router-view>
+    <HeaderSection v-if="isAuthenticated" />
     <FlashMessage ></FlashMessage>
+    <router-view></router-view>
     <FooterSection />
     </div>
   </div>
@@ -12,13 +12,17 @@
 <script>
 import HeaderSection from "@/components/HeaderSection";
 import FooterSection from "@/components/FooterSection";
+import { mapGetters } from "vuex";
 
 export default {
   name: 'App',
   components: {
     HeaderSection,
     FooterSection
-  }
+  },
+  computed: {
+    ...mapGetters(["isAuthenticated"])
+  },
 }
 </script>
 

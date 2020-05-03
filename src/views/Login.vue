@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div id="formContent" class="m-auto">
+        <div id="formContent" class="mx-auto">
             <!-- Tabs Titles -->
 
             <!-- Icon -->

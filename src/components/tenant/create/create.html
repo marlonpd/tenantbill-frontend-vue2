@@ -1,13 +1,38 @@
-<div class="create-tenant-pnl">
-    <h3>Create New Tenant</h3>
-    <form @submit.prevent="onSubmit">
-        <div>
-            <input type="text" id="name" class="w-100" name="name" v-model="name" placeholder="Tenant name">
-        </div>
-        <div class="float-right">
-            <button type="submit" class="btn btn-primary mr-2">submit</button>
-            <button type="button" class="btn btn-secondary" @click="toggleCreateNewTenant()">cancel</button>
-        </div>
+<div  >
+    <div v-if="isCreateNewTenant" class="create-tenant-pnl">
+        <h3>Create New Tenant</h3>
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <form @submit.prevent="onSubmit">
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="inputFirstname">Tenant name</label>
+                            <input type="text" class="form-control" id="name" v-model="name" placeholder="Enter name">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="inputLastname">Meter Number</label>
+                            <input type="text" class="form-control" id="meterNumber" v-model="meterNumber" placeholder="Enter meter number">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="inputLastname">Meter Initial Reading</label>
+                            <input type="text" class="form-control" id="meterInitialReading" v-model="meterInitialReading" placeholder="Enter meter initial reading">
+                        </div>
+                    </div>
 
-    </form>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <button type="button" class="btn btn-secondary mr-2" @click="toggleCreateNewTenant()">cancel</button>
+                            <button type="submit" class="btn btn-primary ">submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div v-else>
+        <button  type="button" class="btn btn-primary btn-add-new" @click="toggleCreateNewTenant()">Add New</button>
+    </div>
 </div>
+    

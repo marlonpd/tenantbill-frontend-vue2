@@ -5,6 +5,8 @@ import * as getters from './getters';
 
 import auth from "./auth";
 import tenants from "./modules/tenants";
+import powerRate from "./modules/powerRate";
+import meterReading from "./modules/meterReading";
 
 Vue.use(Vuex);
 
@@ -14,9 +16,10 @@ export default new Vuex.Store({
   
   modules: {
     auth,
-    tenants
+    tenants,
+    powerRate,
+    meterReading
   },
-
 
   strict: true,
 });

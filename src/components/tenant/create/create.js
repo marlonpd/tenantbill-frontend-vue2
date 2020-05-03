@@ -1,23 +1,26 @@
-import { mapGetters } from "vuex";
-import { CREATE_NEW_TENANT, ADD_NEW_TENANT } from "@/store/actions.type";
+
+import { ADD_NEW_TENANT } from "@/store/actions.type";
 
 export default {
     data() {
       return {
             name : '',
+            meterNumber: '',
+            meterInitialReading: 0,
+            isCreateNewTenant: false,
       }
     },
     methods: {
         toggleCreateNewTenant() {
-            this.$store.dispatch(CREATE_NEW_TENANT);
+            this.isCreateNewTenant = !this.isCreateNewTenant;
         },
         onSubmit() {
-            console.log(this.name);
-            if (this.name === '') {
+
+            if (this.name === '' || this.meterNumber === '' || this.meterInitialReading === '') {
                 this.flashMessage.show({
                     status: 'error',
                     title: 'Error!',
-                    message: 'Enter tenant name.'
+                    message: 'Please fill all the field.'
                 });
     
                 return;
@@ -26,7 +29,8 @@ export default {
             this.$store
                 .dispatch(ADD_NEW_TENANT, {
                     name: this.name,
-
+                    meterNumber: this.meterNumber,
+                    meterInitialReading: this.meterInitialReading,
                 })
                 .then(({response}) => {
                     this.toggleCreateNewTenant();
@@ -40,6 +44,6 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['isCreateNewTenant']),
+       
     },
 }

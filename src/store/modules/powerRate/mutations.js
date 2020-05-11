@@ -5,7 +5,7 @@ export default {
         state.powerRates = JSON.parse(rates);
     },
     [SET_POWER_RATE](state, rate) {
-        state.powerRate = rate;
+        state.powerRate = JSON.parse(rate);
     },
     [APPEND_POWER_RATE](state, powerRate) {
         state.powerRates.unshift({"rate": powerRate.rate, "created": powerRate.created.date});

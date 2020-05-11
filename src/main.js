@@ -33,10 +33,6 @@ Vue.config.productionTip = false
 // Ensure we checked auth before each page load.
 router.beforeEach((to, from, next) => {
 
-  console.log('token-' +JwtService.getToken() );
-  console.log('to.path-' +to.path );
-  console.log('from.path-' +from.path);
-
   if ( (to.path === '/login' || from.path === 'login') && (JwtService.getToken() !== null) ) {
     console.log('hihihi');
     return next({

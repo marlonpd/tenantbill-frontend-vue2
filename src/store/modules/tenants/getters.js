@@ -2,7 +2,7 @@ const getters = {
     allTenats(state) {
         return state.tenants;
     },
-    tenant(state) {
+    currentTenant(state) {
         return state.tenant;
     }
 };

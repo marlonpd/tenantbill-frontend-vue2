@@ -1,0 +1,17 @@
+<div >
+    <div v-if="isAddNewPower" class="create-power-rate-pnl">
+        <h3>Add New Power Rate</h3>
+        <form @submit.prevent="onSubmit">
+            <div>
+                <input type="text" id="rate" class="w-100" name="rate" v-model="rate" placeholder="Power rate">
+            </div>
+            <div class="float-right">
+                <button type="button" class="btn btn-secondary mr-2" @click="toggleAddNewPowerRate()">cancel</button>
+                <button type="submit" class="btn btn-primary ">submit</button>
+            </div>
+        </form>  
+    </div> 
+    <div v-else class="row">
+        <button type="button" class="btn btn-primary btn-add-new" @click="toggleAddNewPowerRate()">Add New</button>
+    </div>
+</div>

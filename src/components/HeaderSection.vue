@@ -49,11 +49,9 @@ export default {
   methods: {
     logout() {
         this.$store.dispatch(LOGOUT);
-        setTimeout(function(){ 
-            self.$router.push({
+        this.$router.push({
                 name: 'login'
             });
-        }, 3000);
     },
   }
 };

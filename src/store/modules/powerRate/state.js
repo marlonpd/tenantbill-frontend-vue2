@@ -1,5 +1,5 @@
 export default {
-    powerRates : {},
+    powerRates : [],
     powerRate : {
         rate: 0
     }

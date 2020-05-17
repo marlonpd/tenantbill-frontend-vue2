@@ -38,7 +38,7 @@ export default new Router({
     },
     {
         name: "meter.reading",
-        path: "/meter-reading/:tenantId",
+        path: "/tenant/meter-reading/:tenantId",
         component: MeterReading
     }
 

@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div  class="row m-auto">
+           <h3>Tenants</h3>
           <div class="tenants-container">
               <div  class="row m-auto">
                 <table class="table">
@@ -9,6 +10,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Meter Number</th>
+                        <th scope="col">Previous Readings</th>
+                        <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,6 +23,12 @@
                             </router-link>
                           </td>
                           <td>{{tenant.meterNumber}}</td>
+                          <td>
+                            Previous Reading Date: {{tenant.meterReadings.previousReadingDate}}<br>
+                            Previous Reading: {{tenant.meterReadings.previousReading}}<br>
+                            Previous Consumed Kwh: {{tenant.meterReadings.consumedKwh}}
+                          </td>
+                          <td ><span class="actions"><font-awesome-icon :icon="['fa', 'trash']" /> <font-awesome-icon :icon="['fa', 'pencil-alt']" /></span> </td>
                         </tr>
                         
                     </tbody>

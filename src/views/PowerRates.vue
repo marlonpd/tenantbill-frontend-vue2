@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div  class="row m-auto">
+          <h3>Rate Per KiloWatt</h3>
            <table class="table">
             <thead>
               <tr>

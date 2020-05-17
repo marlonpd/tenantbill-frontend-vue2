@@ -8,14 +8,14 @@ import store from "./store";
 import FlashMessage from '@smartweb/vue-flash-message'
 import ApiService from "@/apis/api";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret, faUser, faLock, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faUser, faLock, faTrash, faPencilAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ErrorFilter from "./common/filter/error";
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/app.css'
 
-library.add(faUserSecret)
+library.add(faUserSecret, faTrash, faPencilAlt)
 library.add(faUser)
 library.add(faLock)
 library.add(faSignOutAlt);

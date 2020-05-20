@@ -18,7 +18,7 @@ export const TenantsService = {
     update(slug, params) {
         return ApiService.update("/api/tenant/update", slug, { tenant: params });
     },
-    destroy(slug) {
-        return ApiService.delete(`tenant/${slug}`);
+    destroy(id) {
+        return ApiService.post('/api/tenant/delete', { id: id });
     }
 };

@@ -28,7 +28,7 @@
                             Previous Reading: {{tenant.meterReadings.previousReading}}<br>
                             Previous Consumed Kwh: {{tenant.meterReadings.consumedKwh}}
                           </td>
-                          <td ><span class="actions"><font-awesome-icon :icon="['fa', 'trash']" /> <font-awesome-icon :icon="['fa', 'pencil-alt']" /></span> </td>
+                          <td ><span class="actions"><font-awesome-icon :icon="['fa', 'trash']" @click="deleteTenant(tenant.id)" /> <font-awesome-icon :icon="['fa', 'pencil-alt']" /></span> </td>
                         </tr>
                         
                     </tbody>
@@ -47,7 +47,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { FETCH_TENANTS, CREATE_NEW_TENANT } from "@/store/actions.type";
+import { FETCH_TENANTS, CREATE_NEW_TENANT, DELETE_TENANT } from "@/store/actions.type";
 import VCreateTenant from "../components/tenant/create/create.vue";
 
 export default {
@@ -66,6 +66,9 @@ export default {
     toggleCreateNewTenant() {
       this.$store.dispatch(CREATE_NEW_TENANT);
     },
+    deleteTenant(id) {
+      this.$store.dispatch(DELETE_TENANT, id);
+    }
   },
   computed: {
     ...mapGetters(['allTenats']),
